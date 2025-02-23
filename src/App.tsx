@@ -19,7 +19,7 @@ import Checkout from "./components/Checkout/Checkout";
 import Orders from "./components/Orders/Orders";
 import Forgetpassword from "./components/Forgetpassword/Forgetpassword";
 import Verifycode from "./components/Verifycode/Verifycode";
-import Resetpassword from "./components/Resetpassword/resetpassword";
+import Resetpassword from "./components/Resetpassword/Resetpassword";
 
 const query = new QueryClient();
 

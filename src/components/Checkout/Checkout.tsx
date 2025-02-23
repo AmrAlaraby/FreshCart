@@ -46,16 +46,19 @@ export default function Checkout() {
     onSubmit:()=>handelCheckout(checkoutId,'http://localhost:5173')
   })
   async function handelCheckout(cartId: string, url: string) {
-    const data = await checkout(cartId, url, formik.values);
-     
-     
-    if (data && data.status === 'success') {
-      
-      window.location.href = data.session.url;
-    } else {
-      console.error('Error: Invalid response format', data);
+    try {
+      const data: { status: string; session: { url: string } } = await checkout(cartId, url, formik.values);
+  
+      if (data.status === 'success') {
+        window.location.href = data.session.url;
+      } else {
+        console.error('Error: Invalid response format', data);
+      }
+    } catch (error) {
+      console.error("Checkout failed:", error);
     }
   }
+  
 
     useEffect(() => {
       

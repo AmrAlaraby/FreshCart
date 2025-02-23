@@ -8,6 +8,7 @@ import Loader from '../Loader/Loader'
 import { Link } from 'react-router-dom'
 
 export interface Details {
+  message?:string
   status: string
   numOfCartItems: number
   cartId: string

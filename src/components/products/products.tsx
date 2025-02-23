@@ -64,11 +64,13 @@ export default function Products() {
     if (res.status == 'success') {
       setCart(res)
 
-     
+     if (res.message) {
       toast.success(res.message,{
         duration:2000,
         position:"top-right"
       })
+     }
+      
     }else{
       console.log('error');
       toast.success('error adiing to the cart',{
