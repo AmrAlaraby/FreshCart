@@ -1,12 +1,20 @@
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Product } from '../products/products'
 import Loader from '../Loader/Loader'
 import Slider from "react-slick";
+import toast from 'react-hot-toast'
+import { CartContext } from '../../Context/CartContext'
 
 export default function ProductDetails() {
+  const [isLoading,setIsLoading]=useState<boolean>(false)
+    const cartContext = useContext(CartContext);
+    if (!cartContext) {
+      throw new Error("useContext must be used within a CartContextProvider");
+    }
+    const { addToCart,setCart } = cartContext;
   const settings = {
     dots: true,
     infinite: true,
@@ -88,6 +96,30 @@ export default function ProductDetails() {
       });
   }
 
+  async function addProductToCart(productId:string){
+    setIsLoading(true)
+    const res = await addToCart(productId)
+    if (res.status == 'success') {
+      setCart(res)
+
+     if (res.message) {
+      toast.success(res.message,{
+        duration:2000,
+        position:"top-right"
+      })
+     }
+      
+    }else{
+      console.log('error');
+      toast.success('error adiing to the cart',{
+        duration:2000,
+        position:"top-right"
+      })
+      
+    }
+      setIsLoading(false)
+  }
+
     useEffect(() => {
       getProduct()
       
@@ -140,8 +172,10 @@ export default function ProductDetails() {
                 </div></Link>
                 <div className="w-full flex justify-center">
                   <div className="btn">
-                  <button className="text-white  bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add to cart</button>
-                  </div>
+                  <button onClick={()=>addProductToCart(product._id)} className="text-white  bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    {isLoading? <i className="fas fa-spinner mx-4 fa-spin"></i>:'Add to cart'}
+                    
+                  </button>                  </div>
                 </div>
                   
               </div>
