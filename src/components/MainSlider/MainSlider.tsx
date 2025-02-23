@@ -11,7 +11,7 @@ import Slider from 'react-slick'
 
 export default function MainSlider() {
 
-  var settings = {
+  const settings = {
     dots: false,
     infinite: true,
     slidesToShow: 1,
@@ -23,7 +23,7 @@ export default function MainSlider() {
     autoplaySpeed: 3000,
     cssEase: "linear"
   };
-    let [count,setcount]=useState(0)
+    const [count,setcount]=useState(0)
 
     useEffect(() => {
       

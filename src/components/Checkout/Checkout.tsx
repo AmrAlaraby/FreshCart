@@ -21,10 +21,10 @@ export interface ShippingAddress {
 
 
 export default function Checkout() {
-  let {id} =useParams()
+  const {id} =useParams()
   const checkoutId = id ?? '';
-  let [apiError,setapiError]=useState('')
-  let [isLoading,setisLoading]=useState(false)
+  const [apiError,setapiError]=useState('')
+  const [isLoading,setisLoading]=useState(false)
 
   const cartContext = useContext(CartContext);
         if (!cartContext) {
@@ -35,7 +35,7 @@ export default function Checkout() {
 
 
 
-  let formik = useFormik({
+  const formik = useFormik({
     initialValues:{
       details:'',
       phone:'',
@@ -46,7 +46,7 @@ export default function Checkout() {
     onSubmit:()=>handelCheckout(checkoutId,'http://localhost:5173')
   })
   async function handelCheckout(cartId: string, url: string) {
-    let data = await checkout(cartId, url, formik.values);
+    const data = await checkout(cartId, url, formik.values);
      
      
     if (data && data.status === 'success') {

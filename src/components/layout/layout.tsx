@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer'
 import { Outlet } from 'react-router-dom'
 
 export default function Layout() {
-    let [count,setcount]=useState(0)
+    const [count,setcount]=useState(0)
 
     useEffect(() => {
       

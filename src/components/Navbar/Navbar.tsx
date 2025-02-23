@@ -15,9 +15,13 @@ export default function Navbar() {
         const { cart } = cartContext;
 
         
-  let navigate =useNavigate()
-  let {userLogin,setUserLogin}:any = useContext(UserContext)
-    let [navOn,setnavOn]=useState(false)
+  const navigate =useNavigate()
+  const userContext = useContext(UserContext);
+            if (!userContext) {
+              throw new Error("useContext must be used within a CartContextProvider");
+            }
+            const { setUserLogin,userLogin } = userContext;
+    const [navOn,setnavOn]=useState(false)
 
     function toggleNav():void{
       setnavOn(!navOn)

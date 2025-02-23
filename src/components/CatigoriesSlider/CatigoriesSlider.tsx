@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Category } from '../products/products';
 
 export default function CatigoriesSlider() {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 6,
@@ -45,7 +45,7 @@ export default function CatigoriesSlider() {
       }
     ]
   };
-  let [categories,setCategories]=useState<Category[] | []>([])
+  const [categories,setCategories]=useState<Category[] | []>([])
 
   function getCategories() {
     axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)

@@ -32,10 +32,10 @@ export interface Product2 {
 }
 
 export default function Cart() {
-    let [cartDetails,setCartDetails]=useState<Details|null>(null)
-    let [isLoading,setIsLoading]=useState<boolean>(false)
-    let [isLoadingUpdate,setIsLoadingUpdate]=useState<boolean>(false)
-    let [isLoadingDelete,setIsLoadingDelete]=useState<boolean>(false)
+    const [cartDetails,setCartDetails]=useState<Details|null>(null)
+    const [isLoading,setIsLoading]=useState<boolean>(false)
+    const [isLoadingUpdate,setIsLoadingUpdate]=useState<boolean>(false)
+    const [isLoadingDelete,setIsLoadingDelete]=useState<boolean>(false)
     const cartContext = useContext(CartContext);
       if (!cartContext) {
         throw new Error("useContext must be used within a CartContextProvider");
@@ -44,7 +44,7 @@ export default function Cart() {
 
       async function getCart() {
         setIsLoading(true)
-        let res =await getCartItems()
+        const res =await getCartItems()
         
         setCartDetails(res) 
         setIsLoading(false)
@@ -52,7 +52,7 @@ export default function Cart() {
       }
       async function removeFromCart(productId:string) {
         setIsLoadingDelete(true)
-        let res =await removeCartItem(productId)
+        const res =await removeCartItem(productId)
         
         setCartDetails(res)
         setIsLoadingDelete(false)
@@ -62,7 +62,7 @@ export default function Cart() {
           removeFromCart(productId)
         }
         setIsLoadingUpdate(true)
-        let res =await updateCartItem(productId,count)
+        const res =await updateCartItem(productId,count)
         
         setCartDetails(res)
         setIsLoadingUpdate(false)

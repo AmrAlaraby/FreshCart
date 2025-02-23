@@ -16,16 +16,16 @@ interface Forgetpassword {
 }
 
 export default function Forgetpassword() {
-  let [apiError,setapiError]=useState('')
-  let [isLoading,setisLoading]=useState(false)
-let navigate = useNavigate()
+  const [apiError,setapiError]=useState('')
+  const [isLoading,setisLoading]=useState(false)
+const navigate = useNavigate()
 
-let validationYup =yup.object().shape({
+const validationYup =yup.object().shape({
 
   email:yup.string().email('email is invalid').required('email is required'),
 })
 
-  let formik = useFormik({
+  const formik = useFormik({
     initialValues:{
       email:'',
     },

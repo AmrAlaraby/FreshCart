@@ -15,19 +15,23 @@ interface Login {
 }
 
 export default function Signin() {
-  let {setUserLogin}:any=useContext(UserContext)
-  let [apiError,setapiError]=useState('')
-  let [isLoading,setisLoading]=useState(false)
-let navigate = useNavigate()
+    const userContext = useContext(UserContext);
+          if (!userContext) {
+            throw new Error("useContext must be used within a CartContextProvider");
+          }
+          const { setUserLogin } = userContext;
+  const [apiError,setapiError]=useState('')
+  const [isLoading,setisLoading]=useState(false)
+const navigate = useNavigate()
 
-let validationYup =yup.object().shape({
+const validationYup =yup.object().shape({
 
   email:yup.string().email('email is invalid').required('email is required'),
   password:yup.string().matches(/^[A-Z][a-z0-9]{5,10}$/,'password must start with a upperCace').required('password is required'),
 
 })
 
-  let formik = useFormik({
+  const formik = useFormik({
     initialValues:{
       email:'',
       password:'',

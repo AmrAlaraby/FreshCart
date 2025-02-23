@@ -17,28 +17,18 @@ interface register {
     rePassword:string
   
 }
-interface allres {
-  data:response
-}
-interface response {
-  message: string
-  user: User
-  token: string
-}
-
-interface User {
-  name: string
-  email: string
-  role: string
-}
-
 export default function Signup() {
-  let {setUserLogin}:any =useContext(UserContext)
-  let [apiError,setapiError]=useState('')
-  let [isLoading,setisLoading]=useState(false)
-let navigate = useNavigate()
+  const userContext = useContext(UserContext);
+        if (!userContext) {
+          throw new Error("useContext must be used within a CartContextProvider");
+        }
+        const { setUserLogin } = userContext;
 
-let validationYup =yup.object().shape({
+  const [apiError,setapiError]=useState('')
+  const [isLoading,setisLoading]=useState(false)
+const navigate = useNavigate()
+
+const validationYup =yup.object().shape({
   name:yup.string().min(3,'name minlength is 3').max(10,'name maxlength is 10').required('name is required'),
   email:yup.string().email('email is invalid').required('email is required'),
   phone:yup.string().matches(/^01[0125][0-9]{8}$/,'phone is invalid').required('phone is required'),
@@ -46,7 +36,7 @@ let validationYup =yup.object().shape({
   rePassword:yup.string().oneOf([yup.ref('password')],'you must match the password').required('password is required'),
 })
 
-  let formik = useFormik({
+  const formik = useFormik({
     initialValues:{
       name:'',
       phone:'',

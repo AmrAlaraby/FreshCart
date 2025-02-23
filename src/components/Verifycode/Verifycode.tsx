@@ -16,12 +16,12 @@ interface Verifycode {
 }
 
 export default function Verifycode() {
-  let [apiError,setapiError]=useState('')
-  let [isLoading,setisLoading]=useState(false)
-let navigate = useNavigate()
+  const [apiError,setapiError]=useState('')
+  const [isLoading,setisLoading]=useState(false)
+const navigate = useNavigate()
 
 
-  let formik = useFormik({
+  const formik = useFormik({
     initialValues:{
       resetCode:'',
     },

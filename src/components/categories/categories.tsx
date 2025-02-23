@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader';
 import { Category } from '../products/products';
 
 export default function Categories() {
-     let [categories, setCategories] = useState([]);
+     const [categories, setCategories] = useState([]);
 
     function getCategories() {
       axios

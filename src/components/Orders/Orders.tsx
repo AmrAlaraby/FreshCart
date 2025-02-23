@@ -10,8 +10,8 @@ import toast from 'react-hot-toast'
 
 export default function Orders() {
 
-    let [products, setProducts] = useState([]);
-    let navigate=useNavigate()
+    const [products, setProducts] = useState([]);
+    const navigate=useNavigate()
 
     function getOrders() {
       axios

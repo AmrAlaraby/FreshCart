@@ -22,10 +22,10 @@ import Forgetpassword from "./components/Forgetpassword/Forgetpassword";
 import Verifycode from "./components/Verifycode/Verifycode";
 import Resetpassword from "./components/Resetpassword/resetpassword";
 
-let query = new QueryClient();
+const query = new QueryClient();
 
 function App() {
-  let routes = createBrowserRouter([
+  const routes = createBrowserRouter([
     {
       path: "",
       element: <Layout />,

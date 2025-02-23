@@ -7,7 +7,7 @@ import CatigoriesSlider from '../CatigoriesSlider/CatigoriesSlider'
 import MainSlider from '../MainSlider/MainSlider'
 
 export default function Home() {
-    let [count,setcount]=useState(0)
+    const [count,setcount]=useState(0)
 
     useEffect(() => {
       

@@ -9,7 +9,7 @@ import Loader from '../Loader/Loader'
 import Slider from "react-slick";
 
 export default function ProductDetails() {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 1,
@@ -21,7 +21,7 @@ export default function ProductDetails() {
     autoplaySpeed: 3000,
     cssEase: "linear"
   };
-  var settingsRelated = {
+  const settingsRelated = {
     dots: true,
     infinite: true,
     slidesToShow: 6,
@@ -59,7 +59,7 @@ export default function ProductDetails() {
       }
     ]
   };
-  let {id} =useParams()
+  const {id} =useParams()
   
   
   const [product, setProduct] = useState<Product | null>(null);

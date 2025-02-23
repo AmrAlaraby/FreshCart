@@ -4,11 +4,11 @@ import { ShippingAddress } from "../components/Checkout/Checkout";
 import { Details } from "../components/Cart/Cart";
 
 export interface CartContextType {
-  addToCart: (productId: string) => Promise<any>;
-  removeCartItem: (productId: string) => Promise<any>;
-  updateCartItem: (productId: string,count:number) => Promise<any>;
-  checkout :(cartId: string,url:string,formValues:ShippingAddress)=> Promise<any>;
-  getCartItems: () => Promise<any>;
+  addToCart: (productId: string) => Promise<unknown>;
+  removeCartItem: (productId: string) => Promise<unknown>;
+  updateCartItem: (productId: string,count:number) => Promise<unknown>;
+  checkout :(cartId: string,url:string,formValues:ShippingAddress)=> Promise<unknown>;
+  getCartItems: () => Promise<unknown>;
   cart: Details | null;
   setCart: (value: Details | null) => void;
 }
@@ -21,7 +21,7 @@ interface CartContextProviderProps {
 
 export default function CartContextProvider({ children }: CartContextProviderProps) {
     const [cart, setCart] = useState<Details |null>(null)
-  let headers = {
+  const headers = {
     token:localStorage.getItem("userToken"),
   };
 
@@ -66,7 +66,7 @@ export default function CartContextProvider({ children }: CartContextProviderPro
       });
   }
 
-  function addToCart(productId: string): Promise<any> {
+  function addToCart(productId: string): Promise<unknown> {
     return axios
       .post(
         `https://ecommerce.routemisr.com/api/v1/cart`,
@@ -79,8 +79,7 @@ export default function CartContextProvider({ children }: CartContextProviderPro
         throw err;
       });
   }
-  function checkout(cartId: string,url:string,formValues:ShippingAddress): Promise<any> {
-    debugger
+  function checkout(cartId: string,url:string,formValues:ShippingAddress): Promise<unknown> {
     return axios
       .post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${url}`,
         { ShippingAddress: formValues },
@@ -94,7 +93,7 @@ export default function CartContextProvider({ children }: CartContextProviderPro
   }
 
   async function getCart() {
-    let res = await getCartItems()
+    const res = await getCartItems()
 
     
     setCart(res)

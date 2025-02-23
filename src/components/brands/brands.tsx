@@ -10,7 +10,7 @@ export default function Brands() {
 
 
 
-    let [brands, setbrands] = useState([]);
+    const [brands, setbrands] = useState([]);
 
     function getbrands() {
       axios

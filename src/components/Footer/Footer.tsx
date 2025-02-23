@@ -4,7 +4,7 @@ import { useState } from 'react'
 import s from './Footer.module.css'
 
 export default function Footer() {
-    let [count,setcount]=useState(0)
+    const [count,setcount]=useState(0)
 
     useEffect(() => {
       

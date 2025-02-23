@@ -4,7 +4,7 @@ import { useState } from 'react'
 import s from './TemplateName.module.css'
 
 export default function TemplateName() {
-    let [count,setcount]=useState(0)
+    const [count,setcount]=useState(0)
 
     useEffect(() => {
       

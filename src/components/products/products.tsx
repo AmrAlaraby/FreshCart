@@ -50,8 +50,8 @@ export interface Brand {
 }
 
 export default function Products() {
-  let [products, setProducts] = useState([]);
-      let [isLoading,setIsLoading]=useState<boolean>(false)
+  const [products, setProducts] = useState([]);
+      const [isLoading,setIsLoading]=useState<boolean>(false)
   const cartContext = useContext(CartContext);
   if (!cartContext) {
     throw new Error("useContext must be used within a CartContextProvider");
@@ -60,7 +60,7 @@ export default function Products() {
 
   async function addProductToCart(productId:string){
     setIsLoading(true)
-    let res = await addToCart(productId)
+    const res = await addToCart(productId)
     if (res.status == 'success') {
       setCart(res)
 
