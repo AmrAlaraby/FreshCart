@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Navbar.module.css'
+
 import logo from '../../assets/images/freshcart-logo.svg'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../Context/UserContext'

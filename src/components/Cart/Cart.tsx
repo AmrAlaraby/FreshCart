@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Cart.module.css'
+
 import { CartContext } from '../../Context/CartContext'
 import { Product } from '../products/products'
 import Loader from '../Loader/Loader'

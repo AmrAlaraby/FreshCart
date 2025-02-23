@@ -1,7 +1,5 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Orders.module.css'
 import Loader from '../Loader/Loader'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -11,13 +9,12 @@ import toast from 'react-hot-toast'
 export default function Orders() {
 
     const [products, setProducts] = useState([]);
-    const navigate=useNavigate()
 
     function getOrders() {
       axios
         .get(`https://ecommerce.routemisr.com/api/v1/orders/user/67ba16871f4f9e6c0942f962`)
         .then(({ data }) => {
-          
+          setProducts(data)
           toast.error(`getUserOrders api res is : ${data} `)
         })
         .catch(() => {});
@@ -25,9 +22,6 @@ export default function Orders() {
 
     useEffect(() => {
       getOrders()
-      setTimeout(() => {
-        navigate('/')
-      }, 4000);
     }, [])
     
   return (

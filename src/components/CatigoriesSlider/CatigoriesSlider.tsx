@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './CatigoriesSlider.module.css'
+
 import Slider from "react-slick";
 import axios from 'axios';
 import { Category } from '../products/products';

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Signup.module.css'
+
 import { useFormik } from 'formik'
 import axios from 'axios'
-import { data, Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link,  useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
 import { UserContext } from '../../Context/UserContext'
 

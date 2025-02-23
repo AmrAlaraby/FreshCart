@@ -1,10 +1,10 @@
-import React from 'react'
+
 import { useEffect } from 'react'
-import { useState } from 'react'
-import s from './Footer.module.css'
+
+
 
 export default function Footer() {
-    const [count,setcount]=useState(0)
+    
 
     useEffect(() => {
       

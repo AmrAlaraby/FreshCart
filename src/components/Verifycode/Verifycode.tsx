@@ -1,18 +1,13 @@
-import React, { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Forgetpassword.module.css'
 import { useFormik } from 'formik'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
-import * as yup from 'yup'
-import { UserContext } from '../../Context/UserContext'
+import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
 
-interface Verifycode {
+export interface Verifycode {
   resetCode:string,
- 
 }
 
 export default function Verifycode() {

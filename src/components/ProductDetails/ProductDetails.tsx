@@ -1,7 +1,5 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './ProductDetails.module.css'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Product } from '../products/products'
@@ -93,7 +91,7 @@ export default function ProductDetails() {
     useEffect(() => {
       getProduct()
       
-    }, [ id])
+    }, [])
       
     return (
       <>

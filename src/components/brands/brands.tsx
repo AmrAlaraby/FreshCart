@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Brands.module.css'
+
 import { Brand } from '../products/products'
 import axios from 'axios'
 import Loader from '../Loader/Loader'

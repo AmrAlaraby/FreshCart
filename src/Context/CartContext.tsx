@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, DetailsHTMLAttributes, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { ShippingAddress } from "../components/Checkout/Checkout";
 import { Details } from "../components/Cart/Cart";
 

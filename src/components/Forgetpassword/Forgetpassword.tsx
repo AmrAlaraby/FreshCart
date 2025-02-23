@@ -1,16 +1,15 @@
-import React from 'react'
+
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Forgetpassword.module.css'
 import { useFormik } from 'formik'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
 
 import toast from 'react-hot-toast'
 
 
-interface Forgetpassword {
+export interface Forgetpassword {
     email:string,
  
 }

@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Categories.module.css'
+
 import axios from 'axios';
 import Loader from '../Loader/Loader';
 import { Category } from '../products/products';

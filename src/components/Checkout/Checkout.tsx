@@ -1,10 +1,10 @@
-import React, { use, useContext } from 'react'
+import  { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import s from './Checkout.module.css'
+
 import { useFormik } from 'formik'
-import axios from 'axios'
-import { data, Link, NavLink, useParams } from 'react-router-dom'
+
+import { useParams } from 'react-router-dom'
 import { CartContext } from '../../Context/CartContext'
 
 
@@ -23,8 +23,8 @@ export interface ShippingAddress {
 export default function Checkout() {
   const {id} =useParams()
   const checkoutId = id ?? '';
-  const [apiError,setapiError]=useState('')
-  const [isLoading,setisLoading]=useState(false)
+  const [apiError]=useState('')
+  const [isLoading]=useState(false)
 
   const cartContext = useContext(CartContext);
         if (!cartContext) {

@@ -1,7 +1,5 @@
-import React from 'react'
+
 import { useEffect } from 'react'
-import { useState } from 'react'
-import s from './MainSlider.module.css'
 import sliderImg1 from '../../assets/images/slider-image-3.jpeg'
 import sliderImg2 from '../../assets/images/slider-image-2.jpeg'
 import sliderImg3 from '../../assets/images/slider-image-1.jpeg'
@@ -23,7 +21,7 @@ export default function MainSlider() {
     autoplaySpeed: 3000,
     cssEase: "linear"
   };
-    const [count,setcount]=useState(0)
+    
 
     useEffect(() => {
       
